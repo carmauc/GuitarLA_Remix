@@ -1,0 +1,39 @@
+{
+	"name": "guitar-remix",
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"scripts": {
+		"build": "remix build",
+		"dev": "remix dev --manual",
+		"start": "remix-serve ./build/index.js",
+		"format": "npx prettier --write .",
+		"lint": "eslint . --ext .js,.jsx",
+		"lint-fix": "eslint . --fix"
+	},
+	"dependencies": {
+		"@remix-run/css-bundle": "^2.1.0",
+		"@remix-run/node": "^2.1.0",
+		"@remix-run/react": "^2.1.0",
+		"@remix-run/serve": "^2.1.0",
+		"isbot": "^3.6.8",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"remix-utils": "^7.5.0"
+	},
+	"devDependencies": {
+		"@remix-run/dev": "^2.7.2",
+		"@remix-run/eslint-config": "^2.1.0",
+		"eslint": "^8.57.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-config-standard": "^17.1.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-n": "^16.6.2",
+		"eslint-plugin-promise": "^6.1.1",
+		"eslint-plugin-react": "^7.34.1",
+		"prettier": "^3.2.5"
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	}
+}
