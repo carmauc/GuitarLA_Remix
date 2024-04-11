@@ -8,7 +8,7 @@ import {
 	Link,
 } from '@remix-run/react'
 
-import styles from './styles/index.css'
+import './styles/index.css'
 import Header from './components/header'
 import Footer from './components/footer'
 import { useEffect, useState } from 'react'
@@ -30,7 +30,7 @@ export function meta() {
 	]
 }
 
-export function links() {
+export const links = () => {
 	return [
 		{
 			rel: 'stylesheet',
@@ -52,7 +52,7 @@ export function links() {
 		},
 		{
 			rel: 'stylesheet',
-			href: styles,
+			href: './styles/index.css',
 		},
 	]
 }

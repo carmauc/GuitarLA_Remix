@@ -1,17 +1,68 @@
-# GUITAR-LA
+# Welcome to Remix!
 
-![Icono de la aplicación](./FRONT/public/img/logo.svg)
+- [Remix Docs](https://remix.run/docs)
+- [Netlify Functions Overview](https://docs.netlify.com/functions/overview)
 
+## Netlify Setup
 
-Este repositorio contiene el código fuente de GuitarLA, una aplicación web de comercio electrónico desarrollada utilizando Remix Run como framework en el lado del cliente, Strapi como backend headless CMS y Cloudinary para el almacenamiento y manipulación de imágenes. GuitarLA permite a los usuarios explorar una variedad de guitarras, acceder a cursos, visitar el blog y realizar compras en línea de manera fluida.
+1. Install the [Netlify CLI](https://docs.netlify.com/cli/get-started/):
 
+```sh
+npm i -g netlify-cli
+```
 
-## Características
+If you have previously installed the Netlify CLI, you should update it to the latest version:
 
-- **Arquitectura de Componentes:** Utiliza componentes React para una estructura modular y reutilizable.
-- **Integración con Strapi:** Utiliza Strapi como backend para gestionar productos, categorías y usuarios.
-- **Almacenamiento en Cloudinary:** Las imágenes de los productos se almacenan y se sirven desde Cloudinary.
-- **Carrito de Compras:** Los usuarios pueden agregar productos al carrito, ajustar las cantidades y realizar compras.
-- **Manejo de Errores:** Implementa un manejo robusto de errores para una experiencia de usuario fluida.
-- **Rendimiento SEO Optimizado:** Utiliza etiquetas meta efectivas para mejorar el posicionamiento en los motores de búsqueda.
+```sh
+npm i -g netlify-cli@latest
+```
 
+2. Sign up and log in to Netlify:
+
+```sh
+netlify login
+```
+
+3. Create a new site:
+
+```sh
+netlify init
+```
+
+## Development
+
+Ensure all packages are installed by running:
+
+```sh
+npm install
+```
+
+Run
+
+```sh
+netlify dev
+```
+
+Open up [http://localhost:8888](http://localhost:8888), and you're ready to go!
+
+### Serve your site locally
+
+To serve your site locally in a production-like environment, run
+
+```sh
+netlify serve
+```
+
+Your site will be available at [http://localhost:8888](http://localhost:8888). Note that it will not auto-reload when you make changes.
+
+## Deployment
+
+There are two ways to deploy your app to Netlify, you can either link your app to your git repo and have it auto deploy changes to Netlify, or you can deploy your app manually. If you've followed the setup instructions already, all you need to do is run this:
+
+```sh
+# preview deployment
+netlify deploy --build
+
+# production deployment
+netlify deploy --build --prod
+```

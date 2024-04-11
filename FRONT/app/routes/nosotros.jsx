@@ -1,5 +1,7 @@
 import imagen from '../../public/img/nosotros.jpg'
-import styles from '../styles/nosotros.css'
+// import styles from '../styles/nosotros.css'
+import '../styles/nosotros.css'
+
 
 export function meta() {
 	return [
@@ -15,7 +17,7 @@ export function links() {
 	return [
 		{
 			rel: 'stylesheet',
-			href: styles,
+			href: '../styles/nosotros.css',
 		},
 		{
 			rel: 'preload',

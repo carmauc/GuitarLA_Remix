@@ -3,119 +3,120 @@
  * You are free to delete this file if you'd like to, but if you ever want it revealed again, you can run `npx remix reveal` ✨
  * For more information, see https://remix.run/docs/en/main/file-conventions/entry.server
  */
+export { handleRequest as default } from "@netlify/remix-adapter";
 
-import { PassThrough } from 'node:stream'
+// import { PassThrough } from 'node:stream'
 
-import { createReadableStreamFromReadable } from '@remix-run/node'
-import { RemixServer } from '@remix-run/react'
-import isbot from 'isbot'
-import { renderToPipeableStream } from 'react-dom/server'
+// import { createReadableStreamFromReadable } from '@remix-run/node'
+// import { RemixServer } from '@remix-run/react'
+// import isbot from 'isbot'
+// import { renderToPipeableStream } from 'react-dom/server'
 
-const ABORT_DELAY = 5_000
+// const ABORT_DELAY = 5_000
 
-export default function handleRequest(
-	request,
-	responseStatusCode,
-	responseHeaders,
-	remixContext,
-) {
-	return isbot(request.headers.get('user-agent'))
-		? handleBotRequest(
-				request,
-				responseStatusCode,
-				responseHeaders,
-				remixContext,
-			)
-		: handleBrowserRequest(
-				request,
-				responseStatusCode,
-				responseHeaders,
-				remixContext,
-			)
-}
+// export default function handleRequest(
+// 	request,
+// 	responseStatusCode,
+// 	responseHeaders,
+// 	remixContext,
+// ) {
+// 	return isbot(request.headers.get('user-agent'))
+// 		? handleBotRequest(
+// 				request,
+// 				responseStatusCode,
+// 				responseHeaders,
+// 				remixContext,
+// 			)
+// 		: handleBrowserRequest(
+// 				request,
+// 				responseStatusCode,
+// 				responseHeaders,
+// 				remixContext,
+// 			)
+// }
 
-function handleBotRequest(
-	request,
-	responseStatusCode,
-	responseHeaders,
-	remixContext,
-) {
-	return new Promise((resolve, reject) => {
-		const { pipe, abort } = renderToPipeableStream(
-			<RemixServer
-				context={remixContext}
-				url={request.url}
-				abortDelay={ABORT_DELAY}
-			/>,
-			{
-				onAllReady() {
-					const body = new PassThrough()
-					const stream = createReadableStreamFromReadable(body)
+// function handleBotRequest(
+// 	request,
+// 	responseStatusCode,
+// 	responseHeaders,
+// 	remixContext,
+// ) {
+// 	return new Promise((resolve, reject) => {
+// 		const { pipe, abort } = renderToPipeableStream(
+// 			<RemixServer
+// 				context={remixContext}
+// 				url={request.url}
+// 				abortDelay={ABORT_DELAY}
+// 			/>,
+// 			{
+// 				onAllReady() {
+// 					const body = new PassThrough()
+// 					const stream = createReadableStreamFromReadable(body)
 
-					responseHeaders.set('Content-Type', 'text/html')
+// 					responseHeaders.set('Content-Type', 'text/html')
 
-					resolve(
-						new Response(stream, {
-							headers: responseHeaders,
-							status: responseStatusCode,
-						}),
-					)
+// 					resolve(
+// 						new Response(stream, {
+// 							headers: responseHeaders,
+// 							status: responseStatusCode,
+// 						}),
+// 					)
 
-					pipe(body)
-				},
-				onShellError(error) {
-					reject(error)
-				},
-				onError(error) {
-					responseStatusCode = 500
-					console.error(error)
-				},
-			},
-		)
+// 					pipe(body)
+// 				},
+// 				onShellError(error) {
+// 					reject(error)
+// 				},
+// 				onError(error) {
+// 					responseStatusCode = 500
+// 					console.error(error)
+// 				},
+// 			},
+// 		)
 
-		setTimeout(abort, ABORT_DELAY)
-	})
-}
+// 		setTimeout(abort, ABORT_DELAY)
+// 	})
+// }
 
-function handleBrowserRequest(
-	request,
-	responseStatusCode,
-	responseHeaders,
-	remixContext,
-) {
-	return new Promise((resolve, reject) => {
-		const { pipe, abort } = renderToPipeableStream(
-			<RemixServer
-				context={remixContext}
-				url={request.url}
-				abortDelay={ABORT_DELAY}
-			/>,
-			{
-				onShellReady() {
-					const body = new PassThrough()
-					const stream = createReadableStreamFromReadable(body)
+// function handleBrowserRequest(
+// 	request,
+// 	responseStatusCode,
+// 	responseHeaders,
+// 	remixContext,
+// ) {
+// 	return new Promise((resolve, reject) => {
+// 		const { pipe, abort } = renderToPipeableStream(
+// 			<RemixServer
+// 				context={remixContext}
+// 				url={request.url}
+// 				abortDelay={ABORT_DELAY}
+// 			/>,
+// 			{
+// 				onShellReady() {
+// 					const body = new PassThrough()
+// 					const stream = createReadableStreamFromReadable(body)
 
-					responseHeaders.set('Content-Type', 'text/html')
+// 					responseHeaders.set('Content-Type', 'text/html')
 
-					resolve(
-						new Response(stream, {
-							headers: responseHeaders,
-							status: responseStatusCode,
-						}),
-					)
+// 					resolve(
+// 						new Response(stream, {
+// 							headers: responseHeaders,
+// 							status: responseStatusCode,
+// 						}),
+// 					)
 
-					pipe(body)
-				},
-				onShellError(error) {
-					reject(error)
-				},
-				onError(error) {
-					console.error(error)
-					responseStatusCode = 500
-				},
-			},
-		)
+// 					pipe(body)
+// 				},
+// 				onShellError(error) {
+// 					reject(error)
+// 				},
+// 				onError(error) {
+// 					console.error(error)
+// 					responseStatusCode = 500
+// 				},
+// 			},
+// 		)
 
-		setTimeout(abort, ABORT_DELAY)
-	})
-}
+// 		setTimeout(abort, ABORT_DELAY)
+// 	})
+// }

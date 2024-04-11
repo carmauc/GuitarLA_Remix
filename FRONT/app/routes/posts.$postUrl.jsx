@@ -2,7 +2,8 @@
 import { useLoaderData } from '@remix-run/react'
 import { getPost } from '../models/posts.server'
 import { formatearFecha } from '../utils/helpers'
-import styles from '../styles/blog.css'
+// import styles from '../styles/blog.css'
+import '../styles/blog.css'; 
 
 export function meta({ data }) {
 	return [
@@ -18,7 +19,7 @@ export function links() {
 	return [
 		{
 			rel: 'stylesheet',
-			href: styles,
+			href: '../styles/blog.css',
 		},
 	]
 }

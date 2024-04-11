@@ -1,6 +1,8 @@
 import { useLoaderData } from '@remix-run/react'
 import { getPosts } from '../models/posts.server'
-import styles from '../styles/blog.css'
+// import styles from '../styles/blog.css'
+import '../styles/blog.css'
+
 import ListadoPosts from '../components/listado-posts'
 
 export function meta() {
@@ -12,11 +14,11 @@ export function meta() {
 		},
 	]
 }
-export function links() {
+export const links = () => {
 	return [
 		{
 			rel: 'stylesheet',
-			href: styles,
+			href: '../styles/blog.css',
 		},
 	]
 }

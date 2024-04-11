@@ -2,12 +2,18 @@ import { useLoaderData } from '@remix-run/react'
 import { getGuitarras } from '../models/guitarras.server'
 import { getPosts } from '../models/posts.server'
 import ListadoGuitarras from '../components/listado-guitarras'
-import stylesGuitarras from '../styles/guitarras.css'
+// import stylesGuitarras from '../styles/guitarras.css'
+import '../styles/guitarras.css'
+
 import ListadoPosts from '../components/listado-posts'
-import stylesPosts from '../styles/blog.css'
+// import stylesPosts from '../styles/blog.css'
+import '../styles/blog.css'
+
 import { getCurso } from '../models/curso.server'
 import Curso from '../components/curso'
-import stylesCurso from '../styles/curso.css'
+import '../styles/curso.css'
+// import stylesCurso from '../styles/curso.css'
+
 
 export function meta() {
 	return [
@@ -22,15 +28,15 @@ export function links() {
 	return [
 		{
 			rel: 'stylesheet',
-			href: stylesGuitarras,
+			href: '../styles/guitarras.css',
 		},
 		{
 			rel: 'stylesheet',
-			href: stylesPosts,
+			href: '../styles/blog.css',
 		},
 		{
 			rel: 'stylesheet',
-			href: stylesCurso,
+			href: '../styles/curso.css',
 		},
 	]
 }

@@ -1,11 +1,13 @@
 import { Outlet, useOutletContext } from '@remix-run/react'
-import styles from '../styles/guitarras.css'
+// import styles from '../styles/guitarras.css'
+import '../styles/guitarras.css'
+
 
 export function links() {
 	return [
 		{
 			rel: 'stylesheet',
-			href: styles,
+			href: '../styles/guitarras.css',
 		},
 	]
 }

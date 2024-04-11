@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import styles from '../styles/carrito.css'
+import '../styles/carrito.css'
+// import '../styles/nosotros.css'
+
 import { useOutletContext } from '@remix-run/react'
 import { ClientOnly } from 'remix-utils/client-only'
 
@@ -16,7 +18,7 @@ export function links() {
 	return [
 		{
 			rel: 'stylesheet',
-			href: styles,
+			href: '../styles/carrito.css',
 		},
 	]
 }
